@@ -15,7 +15,10 @@
         this.rgbArray1 = this.numToRgb(this.num1);
         this.rgbArray2 = this.numToRgb(this.num2);
 
-        console.log(this.rgbArray1, this.rgbArray2);
+        this.avgR = this.avgCalc(this.rgbArray1[0], this.rgbArray2[0]);
+        this.avgG = this.avgCalc(this.rgbArray1[1], this.rgbArray2[1]);
+        this.avgB = this.avgCalc(this.rgbArray1[2], this.rgbArray2[2]);
+        
     };
     
     avgHex.prototype.hexToNum = function(hex){
@@ -24,6 +27,10 @@
 
     avgHex.prototype.numToRgb = function(num){
         return [num >> 16 & 0xFF, num >> 8 & 0xFF, num & 0xFF];
+    };
+
+    avgHex.prototype.avgCalc = function(num1, num2){
+        return (num1 + num2) / 2;
     };
 
     /***************************
