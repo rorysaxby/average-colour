@@ -18,7 +18,11 @@
         this.avgR = this.avgCalc(this.rgbArray1[0], this.rgbArray2[0]);
         this.avgG = this.avgCalc(this.rgbArray1[1], this.rgbArray2[1]);
         this.avgB = this.avgCalc(this.rgbArray1[2], this.rgbArray2[2]);
-        
+
+        this.averageHex = this.rgbToHex([this.avgR, this.avgG, this.avgB]);
+
+        console.log(this.averageHex);
+
     };
     
     avgHex.prototype.hexToNum = function(hex){
@@ -32,6 +36,21 @@
     avgHex.prototype.avgCalc = function(num1, num2){
         return (num1 + num2) / 2;
     };
+
+    avgHex.prototype.rgbToHex = function(array){
+        var result = "";
+        for(var i = 0; i < array.length; i++){
+            var str = (array[i] >> 0).toString(16);
+
+            if(str.length == 2){
+                result = result + str;
+            } else{
+                result = result + ('0' + str); 
+            };
+        };
+
+        return result;
+    };    
 
     /***************************
     - Hex Average Demo 
