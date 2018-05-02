@@ -21,8 +21,7 @@
 
         this.averageHex = this.rgbToHex([this.avgR, this.avgG, this.avgB]);
 
-        console.log(this.averageHex);
-
+        this.callback(this.averageHex);
     };
     
     avgHex.prototype.hexToNum = function(hex){
@@ -79,8 +78,9 @@
         });
     };
 
-    hexAvgDemo.displayResult = function(){
-
+    hexAvgDemo.displayResult = function(result){
+        hexAvgDemo.answer[0].innerText = '#' + result;
+        hexAvgDemo.outputBox[0].setAttribute('style',"background-color:#" + result);
     };
 
     hexAvgDemo.init = function(){
